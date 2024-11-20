@@ -6,6 +6,7 @@ import Edit from './pages/Edit.jsx';
 import NotFound from './pages/NotFound';
 import { Routes, Route } from 'react-router-dom';
 import { useReducer, useRef } from 'react';
+import { createContext } from 'react';
 
 const mockData = [
   {
@@ -34,6 +35,9 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
+const DiaryStateContext = createContext();
+const DiaryDispatchContext = createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, [...mockData]);
@@ -93,13 +97,17 @@ function App() {
       >
         읽기 삭제 테스트
       </button>
-      <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/new' element={<New />}></Route>
-        <Route path='/diary/:id' element={<Diary />}></Route>
-        <Route path='/edit/:id' element={<Edit />}></Route>
-        <Route path='*' element={<NotFound />}></Route>
-      </Routes>
+      <DiaryStateContext.Provider value={data}>
+        <DiaryDispatchContext.Provider value={{ onCreate, onUpdate, onDelete }}>
+          <Routes>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/new' element={<New />}></Route>
+            <Route path='/diary/:id' element={<Diary />}></Route>
+            <Route path='/edit/:id' element={<Edit />}></Route>
+            <Route path='*' element={<NotFound />}></Route>
+          </Routes>
+        </DiaryDispatchContext.Provider>
+      </DiaryStateContext.Provider>
     </>
   );
 }
