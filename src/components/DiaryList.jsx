@@ -39,9 +39,10 @@ const DiaryList = ({ data }) => {
         />
       </div>
       <div className='list-wrapper'>
-        {sortedData.map((item) => (
-          <DiaryItem key={item.id} {...item} />
-        ))}
+        {sortedData.map((item) => {
+          console.log(item);
+          return <DiaryItem key={item.id} {...item} />;
+        })}
       </div>
     </div>
   );

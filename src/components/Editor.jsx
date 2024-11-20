@@ -1,7 +1,7 @@
 import './Editor.css';
 import EmotionItem from './EmotionItem';
 import Button from './Button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const emotionList = [
@@ -23,13 +23,24 @@ const getStringedDate = (targetDate) => {
   return `${year}-${month}-${date}`;
 };
 
-const Editor = ({ onSubmit }) => {
+const Editor = ({ onSubmit, initData }) => {
   const [input, setInput] = useState({
     createdDate: new Date(),
     emotionId: 3,
     content: '',
   });
+
   const nav = useNavigate();
+
+  // initData 업데이트돼서 들어오면 input 초기값들 추가되도록 useEffect 설정
+  useEffect(() => {
+    if (initData) {
+      setInput({
+        ...initData,
+        createdDate: new Date(Number(initData.createdDate)),
+      });
+    }
+  }, [initData]);
 
   const onChangeInput = (e) => {
     let name = e.target.name;
@@ -60,21 +71,23 @@ const Editor = ({ onSubmit }) => {
       <section className='emotion-section'>
         <h4>오늘의 감정</h4>
         <div className='emotion-list-wrapper'>
-          {emotionList.map((item) => (
-            <EmotionItem
-              onClick={() => {
-                onChangeInput({
-                  target: {
-                    name: 'emotionId',
-                    value: item.emotionId,
-                  },
-                });
-              }}
-              key={item.emotionId}
-              {...item}
-              isSelected={item.emotionId === input.emotionId ? true : false}
-            />
-          ))}
+          {emotionList.map((item) => {
+            return (
+              <EmotionItem
+                onClick={() => {
+                  onChangeInput({
+                    target: {
+                      name: 'emotionId',
+                      value: item.emotionId,
+                    },
+                  });
+                }}
+                key={item.emotionId}
+                {...item}
+                isSelected={item.emotionId === input.emotionId ? true : false}
+              />
+            );
+          })}
         </div>
       </section>
       <section className='content-section'>
