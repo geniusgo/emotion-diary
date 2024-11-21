@@ -5,7 +5,6 @@ import { useState } from 'react';
 
 const Home = () => {
   const [date, setDate] = useState(new Date());
-  console.log(date);
 
   // 누르면 나오는 목록 날짜 기간에 맞게 바뀌도록 변경 필요
   const onClick = (e) => {

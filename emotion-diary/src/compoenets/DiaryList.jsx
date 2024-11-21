@@ -2,9 +2,14 @@ import './DiaryList.css';
 import Dropdown from './Dropdown';
 import Button from './Button';
 import DiaryItem from './DiaryItem';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { DiaryStateContext } from '../App';
 import { dateFormater } from './../utils/date-formater.js';
+
+const sortByDiarymonth = (diary, sortType) => {
+  console.log(sortType === 'latest' ? -1 : 1);
+  return diary.toSorted((a, b) => (a.diaryDate - b.diaryDate) * (sortType === 'latest' ? 1 : -1));
+};
 
 const filterByDiaryMonth = (date, diary) => {
   return diary.filter((item) => {
@@ -21,15 +26,20 @@ const filterByDiaryMonth = (date, diary) => {
 
 const DiaryList = ({ date }) => {
   const diary = useContext(DiaryStateContext); // 전역으로 관리돼야하는 상태 받아오기
-  const filteredDiary = filterByDiaryMonth(date, diary);
+  const [sortType, setSortType] = useState('latest');
+  const prepDiary = sortByDiarymonth(filterByDiaryMonth(date, diary), sortType);
+
+  const onChange = (e) => {
+    setSortType(e.target.value);
+  };
 
   return (
     <div className='diary-list-container'>
       <div className='menu'>
-        <Dropdown />
+        <Dropdown onChange={onChange} />
         <Button text='새 일기 쓰기' type='positive' />
       </div>
-      {filteredDiary.map((item) => {
+      {prepDiary.map((item) => {
         return (
           <DiaryItem
             key={item.id}
