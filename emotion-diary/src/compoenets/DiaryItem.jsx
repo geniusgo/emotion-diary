@@ -2,10 +2,9 @@ import './DiaryItem.css';
 import Button from './Button';
 
 const DiaryItem = ({ date, content, emotionId }) => {
-  console.log(date, content);
   return (
     <div className='diary-item-container'>
-      <div className={`img-container emotion${emotionId}`}>
+      <div className={`img-container emotion${emotionId ? emotionId : ''}`}>
         <img src={`./../src/assets/emotion${emotionId}.png`} alt='emotion-image' />
       </div>
       <div className='contents'>
