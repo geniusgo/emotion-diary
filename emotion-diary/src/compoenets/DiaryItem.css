@@ -1,0 +1,58 @@
+.diary-item-container {
+  display: flex;
+  padding: 20px 0px;
+  border-bottom: 1px solid rgb(236, 236, 236);
+  cursor: pointer;
+}
+
+.diary-item-container > .img-container {
+  width: 140px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.diary-item-container > .img-container.emotion1 {
+  background-color: rgb(100, 201, 100);
+}
+
+.diary-item-container > .img-container.emotion2 {
+  background-color: rgb(157, 215, 114);
+}
+
+.diary-item-container > .img-container.emotion3 {
+  background-color: rgb(253, 206, 23);
+}
+
+.diary-item-container > .img-container.emotion4 {
+  background-color: rgb(253, 132, 70);
+}
+
+.diary-item-container > .img-container.emotion5 {
+  background-color: rgb(253, 86, 95);
+}
+
+.diary-item-container > .img-container > img {
+  width: 50%;
+}
+
+.diary-item-container > .contents {
+  flex: 1;
+  padding: 0px 20px;
+}
+
+.diary-item-container > .contents > .date {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.diary-item-container > .contents > .content {
+  font-size: 12px;
+}
+
+.diary-item-container > button {
+  height: 40px;
+}

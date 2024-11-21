@@ -6,7 +6,8 @@
   align-items: center;
 }
 
-.header-container > title {
+.header-container > .title {
   display: flex;
   align-items: center;
+  font-size: 14px;
 }

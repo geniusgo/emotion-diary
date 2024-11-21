@@ -1,11 +1,11 @@
 import './Dropdown.css';
 
-const Dropdown = () => {
+const Dropdown = ({ onChange }) => {
   return (
     <div className='dropdown'>
-      <select>
-        <option>최신 순</option>
-        <option>오래된 순</option>
+      <select onChange={onChange}>
+        <option value='latest'>최신 순</option>
+        <option value='oldest'>오래된 순</option>
       </select>
     </div>
   );
