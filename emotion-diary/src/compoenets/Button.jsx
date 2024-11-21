@@ -2,11 +2,9 @@ import './Button.css';
 
 const Button = ({ text, onClick, type }) => {
   return (
-    <div onClick={onClick} className='button-container'>
-      <button className={type} onClick={onClick}>
-        {text}
-      </button>
-    </div>
+    <button className={'button ' + type} onClick={onClick}>
+      {text}
+    </button>
   );
 };
 

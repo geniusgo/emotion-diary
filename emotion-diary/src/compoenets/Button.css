@@ -1,4 +1,4 @@
-.button-container > button {
+.button {
   background-color: rgb(236, 236, 236);
   padding: 5px 10px;
   border-radius: 5px;
@@ -7,24 +7,24 @@
   font-size: 14px;
 }
 
-.button-container > button:hover {
+.button:hover {
   background-color: rgb(220, 220, 220);
 }
 
-.button-container > button.positive {
+.button.positive {
   background-color: rgb(100, 201, 100);
   color: #ffffff;
 }
 
-.button-container > button.positive:hover {
+.button.positive:hover {
   background-color: rgb(80, 181, 80);
 }
 
-.button-container > button.negative {
+.button.negative {
   background-color: rgb(253, 86, 95);
   color: #ffffff;
 }
 
-.button-container > button.negative:hover {
+.button.negative:hover {
   background-color: rgb(233, 66, 75);
 }

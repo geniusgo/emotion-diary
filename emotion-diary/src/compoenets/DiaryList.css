@@ -1,0 +1,28 @@
+.diary-list-container {
+  padding: 20px;
+}
+
+.diary-list-container > .menu {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  height: 40px;
+}
+
+.diary-list-container > .menu .dropdown {
+  height: 100%;
+  width: 100px;
+}
+
+.diary-list-container > .menu .dropdown > select {
+  width: 100%;
+  height: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.diary-list-container > .menu button {
+  flex: 1;
+  height: 100%;
+}

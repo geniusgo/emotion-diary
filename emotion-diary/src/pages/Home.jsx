@@ -1,5 +1,6 @@
 import Header from '../compoenets/Header';
 import Button from '../compoenets/Button';
+import DiaryList from '../compoenets/DiaryList';
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
         leftBtn={<Button text='<' />}
         rightBtn={<Button text='>' />}
       />
+      <DiaryList />
     </div>
   );
 };
