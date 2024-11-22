@@ -6,12 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 const New = () => {
   const nav = useNavigate();
+
   const handlePageMoveToHome = () => {
-    if (window.confirm('작성하던 내용이 날아갑니다. 주의해주세요.')) {
+    if (window.confirm('페이지를 떠나시겠습니까? 변경 사항이 저장되지 않을 수 있습니다.')) {
       nav('/', { replace: true });
     }
   };
 
+  /** 입력된 값을 App.js의 onCreate dispatch 함수로 보내서 새로운 diary 추가하는 작업 설정해야 함 높은 확률로 Editor 컴포넌트에서 수행 필요 */
   return (
     <div>
       <Header
