@@ -28,6 +28,10 @@
   border: none;
 }
 
+.detail-content > div > textarea:read-only {
+  cursor: auto;
+}
+
 .detail-content > div > textarea:focus {
   outline: none;
 }
