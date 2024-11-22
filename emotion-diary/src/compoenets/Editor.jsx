@@ -9,7 +9,15 @@ import { emotionName } from '../utils/emotion-name';
 // 전반적으로 컴포넌트 쪼개보기
 const Editor = () => {
   const diary = useContext(DiaryStateContext);
-  const [selectedId, setSelectedId] = useState(1);
+  const [selectedEmotionId, setselectedEmotionId] = useState(0); // emotionId 클릭된 값 저장
+
+  const handleEmotionCardClick = (e) => {
+    const selectedId = [...e.currentTarget.children].findIndex(
+      (elem) => elem === e.target || [...elem.children].includes(e.target)
+    );
+
+    setselectedEmotionId(selectedId + 1);
+  };
 
   // 초기 값 value 전반적으로 추가 필요
   return (
@@ -18,8 +26,15 @@ const Editor = () => {
         <h4>오늘의 날짜 📆</h4>
         <DatePicker />
       </section>
-      <section className='emotion-cards-container'>
+      <section className='emotion-cards-section'>
         <h4>오늘의 감정 😄</h4>
+        <div className='emotion-cards-container'>
+          <div onClick={handleEmotionCardClick} className='emotion-cards'>
+            {[...Object.keys(emotionName)].map((id) => (
+              <EmotionCard key={id} emotionId={Number(id)} selectedEmotionId={selectedEmotionId} />
+            ))}
+          </div>
+        </div>
       </section>
       <section>
         <h4>오늘의 일기 📝</h4>

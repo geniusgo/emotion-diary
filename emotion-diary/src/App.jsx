@@ -30,7 +30,7 @@ function App() {
         id: id.current++,
         diaryDate: new Date().getTime(),
         content: e.target.textContent, // 나중에 실제 데이터 보면서 수정 필요
-        emotionId: e.target.textContent, // 나중에 실제 데이터 보면서 수정 필요
+        emotionId: Number(e.target.textContent), // 나중에 실제 데이터 보면서 수정 필요
       },
     });
   };
