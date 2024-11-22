@@ -1,12 +1,15 @@
 import Header from '../compoenets/Header';
 import Button from '../compoenets/commons/Button';
 import Editor from '../compoenets/Editor';
+import Footer from '../compoenets/Footer';
 import { useNavigate } from 'react-router-dom';
 
 const New = () => {
   const nav = useNavigate();
   const handlePageMoveToHome = () => {
-    nav('/');
+    if (window.confirm('작성하던 내용이 날아갑니다. 주의해주세요.')) {
+      nav('/', { replace: true });
+    }
   };
 
   return (
@@ -16,11 +19,8 @@ const New = () => {
         leftBtn={<Button text='< 뒤로가기' onClick={handlePageMoveToHome} />}
         rightBtn={<div className='button-container'></div>}
       ></Header>
-      <Editor></Editor>
-      <div className='button-container'>
-        <Button text='취소하기' />
-        <Button text='작성 완료' type='positive' />
-      </div>
+      <Editor />
+      <Footer onClick={handlePageMoveToHome} />
     </div>
   );
 };
