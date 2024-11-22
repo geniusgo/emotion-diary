@@ -6,14 +6,14 @@ import { useNavigate } from 'react-router-dom';
 const DiaryControler = ({ onSortTypeChange }) => {
   const nav = useNavigate();
 
-  const handlePageMove = () => {
+  const handlePageMoveToNew = () => {
     nav('/new');
   };
 
   return (
     <div className='diary-controler-container'>
       <Dropdown onSortTypeChange={onSortTypeChange} />
-      <Button text='새 일기 쓰기' type='positive' onClick={handlePageMove} />
+      <Button text='새 일기 쓰기' type='positive' onClick={handlePageMoveToNew} />
     </div>
   );
 };

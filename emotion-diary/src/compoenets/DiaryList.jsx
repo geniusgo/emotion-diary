@@ -3,7 +3,6 @@ import DiaryItem from './DiaryItem';
 import DiaryControler from './DiaryControler.jsx';
 import { useContext, useState } from 'react';
 import { DiaryStateContext } from '../App';
-import { useNavigate } from 'react-router-dom';
 
 const sortByDiarymonth = (diary, sortType) => {
   return diary.toSorted((a, b) => (a.diaryDate - b.diaryDate) * (sortType === 'latest' ? 1 : -1));
