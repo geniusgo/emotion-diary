@@ -5,11 +5,16 @@ import EmotionCard from './commons/EmotionCard';
 import { useState, useContext } from 'react';
 import { DiaryStateContext } from '../App';
 import { emotionName } from '../utils/emotion-name';
+import TextArea from './commons/TextArea';
+import { useParams } from 'react-router-dom';
 
 // 전반적으로 컴포넌트 쪼개보기
 const Editor = () => {
+  const params = useParams();
   const diary = useContext(DiaryStateContext);
+  const selectedDiary = params.id ? diary.filter((item) => item.id === params.id) : '';
   const [selectedEmotionId, setselectedEmotionId] = useState(0); // emotionId 클릭된 값 저장
+  const [content, setContent] = useState(selectedDiary[0] ? selectedDiary[0] : '');
 
   const handleEmotionCardClick = (e) => {
     const selectedId = [...e.currentTarget.children].findIndex(
@@ -36,8 +41,9 @@ const Editor = () => {
           </div>
         </div>
       </section>
-      <section>
+      <section className='text-area-section'>
         <h4>오늘의 일기 📝</h4>
+        <TextArea content={content} readOnly={false} setContent={setContent} />
         {/* emotion-card 컴포넌트로 넣는거 어떻게 할지 고민해서 처리해보기 */}
       </section>
       <div className='button-container'>

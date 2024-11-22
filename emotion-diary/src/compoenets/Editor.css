@@ -25,3 +25,12 @@
   flex: 1;
   aspect-ratio: 1;
 }
+
+.text-area-section > .text-area-container {
+  width: 100%;
+}
+
+.text-area-section > .text-area-container > textarea {
+  padding: 20px;
+  width: 100%;
+}

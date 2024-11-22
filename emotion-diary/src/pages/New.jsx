@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 const New = () => {
   const nav = useNavigate();
-
   const handlePageMoveToHome = () => {
     nav('/');
   };

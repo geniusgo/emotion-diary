@@ -1,0 +1,25 @@
+.text-area-container {
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.text-area-container > textarea {
+  width: 85%;
+  resize: none;
+  height: 300px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgb(236, 236, 236);
+  border: none;
+  line-height: 1.6;
+}
+
+.text-area-container > textarea:read-only {
+  cursor: auto;
+}
+
+.text-area-container > textarea:focus {
+  outline: none;
+}
