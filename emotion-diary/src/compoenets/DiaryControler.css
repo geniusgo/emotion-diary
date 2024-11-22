@@ -1,0 +1,13 @@
+.diary-list-container > .diary-controler-container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.diary-list-container > .diary-controler-container button {
+  flex: 1;
+  height: 100%;
+}
