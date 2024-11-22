@@ -1,5 +1,6 @@
 import Header from '../compoenets/Header';
 import Button from '../compoenets/Button';
+import Editor from '../compoenets/Editor';
 import { useNavigate } from 'react-router-dom';
 
 const New = () => {
@@ -16,6 +17,7 @@ const New = () => {
         leftBtn={<Button text='< 뒤로가기' onClick={handlePageMoveToHome} />}
         rightBtn={<div className='button-container'></div>}
       ></Header>
+      <Editor></Editor>
     </div>
   );
 };
