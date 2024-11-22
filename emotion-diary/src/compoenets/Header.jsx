@@ -3,9 +3,12 @@ import './Header.css';
 const Header = ({ text, leftBtn, rightBtn }) => {
   return (
     <div className='header-container'>
-      {leftBtn || null}
-      <div className='title'>{text}</div>
-      {rightBtn || null}
+      {leftBtn}
+      <div className='header-title-container'>
+        <p className='title'>{text}</p>
+      </div>
+
+      {rightBtn}
     </div>
   );
 };
