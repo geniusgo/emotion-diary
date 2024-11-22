@@ -7,7 +7,7 @@ const Home = () => {
   const [date, setDate] = useState(new Date());
 
   // 누르면 나오는 목록 날짜 기간에 맞게 바뀌도록 변경 필요
-  const onClick = (e) => {
+  const handleDateChange = (e) => {
     switch (e.target.textContent) {
       case '<':
         return setDate(
@@ -26,8 +26,8 @@ const Home = () => {
     <div className='home'>
       <Header
         text={`${date.getFullYear()}. ${date.getMonth() + 1}`}
-        leftBtn={<Button text='<' onClick={onClick} />}
-        rightBtn={<Button text='>' onClick={onClick} />}
+        leftBtn={<Button text='<' onDateChange={handleDateChange} />}
+        rightBtn={<Button text='>' onDateChange={handleDateChange} />}
       />
       <DiaryList date={date} />
     </div>

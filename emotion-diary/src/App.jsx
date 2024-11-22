@@ -15,13 +15,12 @@ const reducer = (state, action) => {
     }
   }
 };
-
-export const DiaryStateContext = createContext();
-export const DiaryDispatchContext = createContext();
+export const DiaryStateContext = createContext(); // 원시 타입 state 관리
+export const DiaryDispatchContext = createContext(); // 참조형 타입 관리
 
 function App() {
   const [diary, dispatch] = useReducer(reducer, mockData);
-  const id = useRef(5);
+  const id = useRef(5); // 배열 렌더링에서 key로 사용할 id
 
   // 새 일기 만들기
   const onCreate = (e) => {
