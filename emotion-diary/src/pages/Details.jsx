@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../compoenets/Header';
-import Button from '../compoenets/Button';
+import Button from '../compoenets/commons/Button';
 import DetailEmotion from '../compoenets/DetailEmotion';
 import DetailContent from '../compoenets/DetailContent';
 import { useContext } from 'react';

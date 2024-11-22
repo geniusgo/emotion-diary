@@ -1,6 +1,6 @@
 import './DiaryControler.css';
-import Dropdown from './Dropdown';
-import Button from './Button';
+import Dropdown from './commons/Dropdown';
+import Button from './commons/Button';
 import { useNavigate } from 'react-router-dom';
 
 const DiaryControler = ({ onSortTypeChange }) => {

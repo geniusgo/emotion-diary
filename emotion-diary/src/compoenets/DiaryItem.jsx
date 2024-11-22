@@ -1,5 +1,5 @@
 import './DiaryItem.css';
-import Button from './Button';
+import Button from './commons/Button';
 import { useNavigate } from 'react-router-dom';
 import { dateFormater } from './../utils/date-formater.js';
 

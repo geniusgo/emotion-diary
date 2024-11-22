@@ -7,7 +7,6 @@ const Header = ({ text, leftBtn, rightBtn }) => {
       <div className='header-title-container'>
         <p className='title'>{text}</p>
       </div>
-
       {rightBtn}
     </div>
   );

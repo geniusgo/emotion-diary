@@ -1,5 +1,5 @@
 import Header from '../compoenets/Header';
-import Button from '../compoenets/Button';
+import Button from '../compoenets/commons/Button';
 import Editor from '../compoenets/Editor';
 import { useNavigate } from 'react-router-dom';
 

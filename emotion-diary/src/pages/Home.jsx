@@ -1,5 +1,5 @@
 import Header from '../compoenets/Header';
-import Button from '../compoenets/Button';
+import Button from '../compoenets/commons/Button';
 import DiaryList from '../compoenets/DiaryList';
 import { useState } from 'react';
 
