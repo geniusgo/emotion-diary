@@ -26,7 +26,7 @@ const Details = () => {
   return (
     <div>
       <Header
-        text={`${dateFormater(selectedDiary.diaryDate)} 기록`}
+        text={`${dateFormater(selectedDiary.diaryDate, '. ')} 기록`}
         leftBtn={<Button text={'< 뒤로 가기'} onClick={handlePageMoveToHome} />}
         rightBtn={<Button text={'수정하기'} onClick={handlePageMoveToEdit} />}
       ></Header>

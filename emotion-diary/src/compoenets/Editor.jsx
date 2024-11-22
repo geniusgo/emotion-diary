@@ -24,7 +24,7 @@ const Editor = () => {
     <div className='editor-container'>
       <section className='today-date-container'>
         <h4>오늘의 날짜 📆</h4>
-        <DatePicker />
+        <DatePicker date={new Date()} />
       </section>
       <section className='emotion-cards-section'>
         <h4>오늘의 감정 😄</h4>

@@ -20,3 +20,8 @@
   width: 100%;
   gap: 10px;
 }
+
+.emotion-cards > .emotion-card {
+  flex: 1;
+  aspect-ratio: 1;
+}

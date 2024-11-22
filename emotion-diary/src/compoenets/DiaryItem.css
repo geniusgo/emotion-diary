@@ -5,9 +5,9 @@
   cursor: pointer;
 }
 
-.diary-item-container > .img-container {
-  width: 140px;
-  height: 90px;
+.diary-item-container > .emotion-card {
+  width: 120px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,8 +34,12 @@
   background-color: rgb(253, 86, 95);
 }
 
-.diary-item-container > .img-container > img {
+.diary-item-container > .emotion-card > img {
   width: 50%;
+}
+
+.diary-item-container > .emotion-card > p {
+  display: none;
 }
 
 .diary-item-container > .contents {
