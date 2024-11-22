@@ -1,8 +1,8 @@
 import './Button.css';
 
-const Button = ({ text, type, onDateChange }) => {
+const Button = ({ text, type, onClick }) => {
   return (
-    <button className={`button${type ? ` ${type}` : ''}`} onClick={onDateChange}>
+    <button className={`button${type ? ` ${type}` : ''}`} onClick={onClick}>
       {text}
     </button>
   );

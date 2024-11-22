@@ -3,7 +3,7 @@ import DiaryItem from './DiaryItem';
 import DiaryControler from './DiaryControler.jsx';
 import { useContext, useState } from 'react';
 import { DiaryStateContext } from '../App';
-import { dateFormater } from './../utils/date-formater.js';
+import { useNavigate } from 'react-router-dom';
 
 const sortByDiarymonth = (diary, sortType) => {
   return diary.toSorted((a, b) => (a.diaryDate - b.diaryDate) * (sortType === 'latest' ? 1 : -1));
@@ -33,14 +33,7 @@ const DiaryList = ({ date }) => {
       <DiaryControler onSortTypeChange={handleSortTypeChange} />
       <div className='diary-items-container'>
         {filteredDiary.map((item) => {
-          return (
-            <DiaryItem
-              key={item.id}
-              date={dateFormater(item.diaryDate)}
-              content={item.content}
-              emotionId={item.emotionId}
-            />
-          );
+          return <DiaryItem key={item.id} {...item} />;
         })}
       </div>
     </div>

@@ -26,8 +26,8 @@ const Home = () => {
     <div className='home'>
       <Header
         text={`${date.getFullYear()}. ${date.getMonth() + 1}`}
-        leftBtn={<Button text='<' onDateChange={handleDateChange} />}
-        rightBtn={<Button text='>' onDateChange={handleDateChange} />}
+        leftBtn={<Button text='<' onClick={handleDateChange} />}
+        rightBtn={<Button text='>' onClick={handleDateChange} />}
       />
       <DiaryList date={date} />
     </div>
