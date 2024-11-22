@@ -46,10 +46,6 @@ const Editor = () => {
         <TextArea content={content} readOnly={false} setContent={setContent} />
         {/* emotion-card 컴포넌트로 넣는거 어떻게 할지 고민해서 처리해보기 */}
       </section>
-      <div className='button-container'>
-        <Button text='취소하기' />
-        <Button text='작성 완료' type='positive' />
-      </div>
     </div>
   );
 };

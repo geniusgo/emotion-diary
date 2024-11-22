@@ -17,6 +17,10 @@ const New = () => {
         rightBtn={<div className='button-container'></div>}
       ></Header>
       <Editor></Editor>
+      <div className='button-container'>
+        <Button text='취소하기' />
+        <Button text='작성 완료' type='positive' />
+      </div>
     </div>
   );
 };
