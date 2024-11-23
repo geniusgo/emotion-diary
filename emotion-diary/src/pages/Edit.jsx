@@ -9,8 +9,6 @@ const Edit = () => {
   const nav = useNavigate();
   const selectedDiary = useDiaryById();
 
-  console.log(selectedDiary);
-
   const handlePageMoveToHome = () => {
     if (window.confirm('변경 사항이 저장되지 않습니다. 계속 할까요?')) {
       nav('/', { replace: true });

@@ -2,6 +2,7 @@ import './TextArea.css';
 import { useState, useRef } from 'react';
 
 const TextArea = ({ content, readOnly, setContent }) => {
+  // const TextArea = ({ content, readOnly, setContent }) => {
   const [tempContent, setTempContent] = useState(content);
   let timerId = useRef(0);
 

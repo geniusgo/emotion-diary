@@ -5,7 +5,7 @@ import { useContext, useState } from 'react';
 import { DiaryStateContext } from '../App';
 
 const sortByDiarymonth = (diary, sortType) => {
-  return diary.toSorted((a, b) => (a.diaryDate - b.diaryDate) * (sortType === 'latest' ? 1 : -1));
+  return diary.toSorted((a, b) => (a.diaryDate - b.diaryDate) * (sortType === 'latest' ? -1 : 1));
 };
 
 const filterByDiaryMonth = (date, diary) => {

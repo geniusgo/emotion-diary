@@ -1,13 +1,9 @@
 import './Editor.css';
-import Button from './commons/Button';
 import DatePicker from './commons/DatePicker';
 import EmotionCard from './commons/EmotionCard';
-// import { useContext } from 'react';
-// import { DiaryStateContext } from '../App';
 import { emotionName } from '../constants/constants';
 import TextArea from './commons/TextArea';
 import { useDiaryById } from '../hooks/useDiaryById';
-// import { useParams } from 'react-router-dom';
 
 const Editor = ({ diaryDate, emotionId, content, setDiaryDate, setEmotionId, setContent }) => {
   const handleEmotionCardClick = (e) => {
@@ -38,7 +34,6 @@ const Editor = ({ diaryDate, emotionId, content, setDiaryDate, setEmotionId, set
       <section className='text-area-section'>
         <h4>오늘의 일기 📝</h4>
         <TextArea content={content} readOnly={false} setContent={setContent} />
-        {/* emotion-card 컴포넌트로 넣는거 어떻게 할지 고민해서 처리해보기 */}
       </section>
     </div>
   );
