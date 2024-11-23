@@ -20,8 +20,10 @@ const New = () => {
   };
 
   const handleNewDiaryCreate = () => {
-    handleCreate({ diaryDate, content, emotionId });
-    nav('/', { replace: true });
+    if (window.confirm('작성하신 내용으로 일기를 생성합니다')) {
+      handleCreate({ diaryDate, content, emotionId });
+      nav('/', { replace: true });
+    }
   };
 
   /** 입력된 값을 App.js의 onCreate dispatch 함수로 보내서 새로운 diary 추가하는 작업 설정해야 함 높은 확률로 Editor 컴포넌트에서 수행 필요 */
