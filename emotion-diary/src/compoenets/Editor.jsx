@@ -2,17 +2,14 @@ import './Editor.css';
 import Button from './commons/Button';
 import DatePicker from './commons/DatePicker';
 import EmotionCard from './commons/EmotionCard';
-import { useContext } from 'react';
-import { DiaryStateContext } from '../App';
+// import { useContext } from 'react';
+// import { DiaryStateContext } from '../App';
 import { emotionName } from '../utils/emotion-name';
 import TextArea from './commons/TextArea';
-import { useParams } from 'react-router-dom';
+import { useDiaryById } from '../hooks/useDiaryById';
+// import { useParams } from 'react-router-dom';
 
-// 전반적으로 컴포넌트 쪼개보기
 const Editor = ({ diaryDate, emotionId, content, setDiaryDate, setEmotionId, setContent }) => {
-  const params = useParams();
-  const diary = useContext(DiaryStateContext);
-  const selectedDiary = params.id ? diary.filter((item) => item.id === params.id) : '';
   const handleEmotionCardClick = (e) => {
     const selectedId = [...e.currentTarget.children].findIndex(
       (elem) => elem === e.target || [...elem.children].includes(e.target)
