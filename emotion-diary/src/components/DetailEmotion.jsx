@@ -1,5 +1,5 @@
 import './DetailEmotion.css';
-import { emotionName } from '../utils/emotion-name';
+import { emotionName } from '../constants/constants';
 import EmotionCard from './commons/EmotionCard';
 
 const DetailEmotion = ({ emotionId }) => {

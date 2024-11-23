@@ -1,9 +1,9 @@
 import './App.css';
-import Details from './pages/Details';
-import Edit from './pages/Edit';
-import Home from './pages/Home';
-import New from './pages/New';
-import NotFound from './pages/NotFound';
+import Details from './pages/Details.jsx';
+import Edit from './pages/Edit.jsx';
+import Home from './pages/Home.jsx';
+import New from './pages/New.jsx';
+import NotFound from './pages/NotFound.jsx';
 import { Routes, Route } from 'react-router-dom';
 import { useReducer, createContext, useRef } from 'react';
 import { mockData } from './utils/mock-data.js';

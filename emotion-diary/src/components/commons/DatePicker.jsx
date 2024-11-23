@@ -1,5 +1,5 @@
 import './DatePicker.css';
-import { dateFormater } from '../../utils/date-formater';
+import { dateFormatter } from '../../utils/date-formatter';
 
 const DatePicker = ({ diaryDate, setDiaryDate }) => {
   const handleDateChange = (e) => {
@@ -12,7 +12,7 @@ const DatePicker = ({ diaryDate, setDiaryDate }) => {
         onChange={handleDateChange}
         type='date'
         name='datePicker'
-        value={dateFormater(diaryDate, '-')}
+        value={dateFormatter(diaryDate, '-')}
       />
     </div>
   );

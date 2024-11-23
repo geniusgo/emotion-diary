@@ -1,7 +1,7 @@
-import Header from '../compoenets/Header';
-import Button from '../compoenets/commons/Button';
-import Editor from '../compoenets/Editor';
-import Footer from '../compoenets/Footer';
+import Header from '../components/Header';
+import Button from '../components/commons/Button';
+import Editor from '../components/Editor';
+import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { DiaryDispatchContext } from '../App';

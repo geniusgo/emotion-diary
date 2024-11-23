@@ -1,4 +1,4 @@
-export const dateFormater = (timeFormatDate, separator) => {
+export const dateFormatter = (timeFormatDate, separator) => {
   let year = new Date(timeFormatDate).getFullYear().toString();
   let month = (new Date(timeFormatDate).getMonth() + 1).toString();
   let date = new Date(timeFormatDate).getDate().toString();

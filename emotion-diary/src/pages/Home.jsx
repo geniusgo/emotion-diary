@@ -1,6 +1,6 @@
-import Header from '../compoenets/Header';
-import Button from '../compoenets/commons/Button';
-import DiaryList from '../compoenets/DiaryList';
+import Header from '../components/Header';
+import Button from '../components/commons/Button';
+import DiaryList from '../components/DiaryList';
 import { useState } from 'react';
 
 const Home = () => {

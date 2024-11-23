@@ -4,7 +4,7 @@ import DatePicker from './commons/DatePicker';
 import EmotionCard from './commons/EmotionCard';
 // import { useContext } from 'react';
 // import { DiaryStateContext } from '../App';
-import { emotionName } from '../utils/emotion-name';
+import { emotionName } from '../constants/constants';
 import TextArea from './commons/TextArea';
 import { useDiaryById } from '../hooks/useDiaryById';
 // import { useParams } from 'react-router-dom';

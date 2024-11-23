@@ -1,6 +1,6 @@
 import './DiaryList.css';
 import DiaryItem from './DiaryItem';
-import DiaryControler from './DiaryControler.jsx';
+import DiaryController from './DiaryController.jsx';
 import { useContext, useState } from 'react';
 import { DiaryStateContext } from '../App';
 
@@ -29,7 +29,7 @@ const DiaryList = ({ date }) => {
 
   return (
     <div className='diary-list-container'>
-      <DiaryControler onSortTypeChange={handleSortTypeChange} />
+      <DiaryController onSortTypeChange={handleSortTypeChange} />
       <div className='diary-items-container'>
         {filteredDiary.map((item) => {
           return <DiaryItem key={item.id} {...item} />;
