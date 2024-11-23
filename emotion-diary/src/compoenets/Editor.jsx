@@ -2,26 +2,23 @@ import './Editor.css';
 import Button from './commons/Button';
 import DatePicker from './commons/DatePicker';
 import EmotionCard from './commons/EmotionCard';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { DiaryStateContext } from '../App';
 import { emotionName } from '../utils/emotion-name';
 import TextArea from './commons/TextArea';
 import { useParams } from 'react-router-dom';
 
 // 전반적으로 컴포넌트 쪼개보기
-const Editor = () => {
+const Editor = ({ diaryDate, emotionId, content, setDiaryDate, setEmotionId, setContent }) => {
   const params = useParams();
   const diary = useContext(DiaryStateContext);
   const selectedDiary = params.id ? diary.filter((item) => item.id === params.id) : '';
-  const [diaryDate, setDiaryDate] = useState(new Date());
-  const [selectedEmotionId, setselectedEmotionId] = useState(0); // emotionId 클릭된 값 저장
-  const [content, setContent] = useState(selectedDiary[0] ? selectedDiary[0] : '');
   const handleEmotionCardClick = (e) => {
     const selectedId = [...e.currentTarget.children].findIndex(
       (elem) => elem === e.target || [...elem.children].includes(e.target)
     );
 
-    setselectedEmotionId(selectedId + 1);
+    setEmotionId(selectedId + 1);
   };
 
   // 초기 값 value 전반적으로 추가 필요
@@ -36,7 +33,7 @@ const Editor = () => {
         <div className='emotion-cards-container'>
           <div onClick={handleEmotionCardClick} className='emotion-cards'>
             {[...Object.keys(emotionName)].map((id) => (
-              <EmotionCard key={id} emotionId={Number(id)} selectedEmotionId={selectedEmotionId} />
+              <EmotionCard key={id} emotionId={Number(id)} selectedEmotionId={emotionId} />
             ))}
           </div>
         </div>

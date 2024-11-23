@@ -23,21 +23,19 @@ function App() {
   const id = useRef(6); // 배열 렌더링에서 key로 사용할 id
 
   // 새 일기 만들기
-  const onCreate = (e) => {
+  const handleCreate = (diary) => {
     dispatch({
       type: 'CREATE',
       diary: {
         id: id.current++,
-        diaryDate: new Date().getTime(),
-        content: e.target.textContent, // 나중에 실제 데이터 보면서 수정 필요
-        emotionId: Number(e.target.textContent), // 나중에 실제 데이터 보면서 수정 필요
+        ...diary,
       },
     });
   };
 
   return (
     <DiaryStateContext.Provider value={diary}>
-      <DiaryDispatchContext.Provider value={onCreate}>
+      <DiaryDispatchContext.Provider value={handleCreate}>
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/edit/:id' element={<Edit />}></Route>
