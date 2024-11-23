@@ -10,7 +10,7 @@ const New = () => {
   const [diaryDate, setDiaryDate] = useState(new Date());
   const [emotionId, setEmotionId] = useState(0); // emotionId 클릭된 값 저장
   const [content, setContent] = useState('');
-  const handleCreate = useContext(DiaryDispatchContext);
+  const { handleCreate } = useContext(DiaryDispatchContext);
   const nav = useNavigate();
 
   const handlePageMoveToHome = () => {

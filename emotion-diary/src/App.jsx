@@ -13,6 +13,9 @@ const reducer = (state, action) => {
     case 'CREATE': {
       return [...state, action.diary];
     }
+    case 'DELETE': {
+      return [...state].filter((item) => item.id !== action.id);
+    }
   }
 };
 export const DiaryStateContext = createContext(); // 원시 타입 state 관리
@@ -33,9 +36,16 @@ function App() {
     });
   };
 
+  const handleDelete = (id) => {
+    dispatch({
+      type: 'DELETE',
+      id,
+    });
+  };
+
   return (
     <DiaryStateContext.Provider value={diary}>
-      <DiaryDispatchContext.Provider value={handleCreate}>
+      <DiaryDispatchContext.Provider value={{ handleCreate, handleDelete }}>
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/edit/:id' element={<Edit />}></Route>
