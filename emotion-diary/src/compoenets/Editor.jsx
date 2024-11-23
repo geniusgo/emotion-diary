@@ -13,9 +13,9 @@ const Editor = () => {
   const params = useParams();
   const diary = useContext(DiaryStateContext);
   const selectedDiary = params.id ? diary.filter((item) => item.id === params.id) : '';
+  const [diaryDate, setDiaryDate] = useState(new Date());
   const [selectedEmotionId, setselectedEmotionId] = useState(0); // emotionId 클릭된 값 저장
   const [content, setContent] = useState(selectedDiary[0] ? selectedDiary[0] : '');
-
   const handleEmotionCardClick = (e) => {
     const selectedId = [...e.currentTarget.children].findIndex(
       (elem) => elem === e.target || [...elem.children].includes(e.target)
@@ -29,7 +29,7 @@ const Editor = () => {
     <div className='editor-container'>
       <section className='today-date-container'>
         <h4>오늘의 날짜 📆</h4>
-        <DatePicker date={new Date()} />
+        <DatePicker diaryDate={diaryDate} setDiaryDate={setDiaryDate} />
       </section>
       <section className='emotion-cards-section'>
         <h4>오늘의 감정 😄</h4>
