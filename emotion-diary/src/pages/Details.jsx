@@ -21,8 +21,6 @@ const Details = () => {
     nav(`/edit/${params.id}`);
   };
 
-  // emotionId가 아니라 diaryId로 감정 이미지 들어가 있음 수정 필요
-  // textarea에 기본 텍스트가 들어가 있도록 설정돼야 하고, readOnly가 돼야함 수정 필요
   return (
     <div>
       <Header

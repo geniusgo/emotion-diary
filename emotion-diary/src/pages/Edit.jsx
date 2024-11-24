@@ -2,16 +2,17 @@ import Header from '../components/Header';
 import Button from '../components/commons/Button';
 import Editor from '../components/Editor';
 import Footer from '../components/Footer';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDiaryById } from '../hooks/useDiaryById';
 import { createContext, useContext, useState } from 'react';
 import { DiaryDispatchContext } from '../App';
+import usePageMove from '../hooks/usePageMove';
 
 export const EditItemContext = createContext();
 export const EditSetItemContext = createContext();
 
 const Edit = () => {
-  const nav = useNavigate();
+  const customNav = usePageMove();
   const params = useParams();
   const selectedDiary = useDiaryById();
   const { handleCreate, handleUpdate, handleDelete } = useContext(DiaryDispatchContext);
@@ -21,30 +22,22 @@ const Edit = () => {
   const type = params.id ? 'edit' : 'new';
 
   const handlePageMoveToHome = () => {
-    if (window.confirm('변경 사항이 저장되지 않습니다. 계속 할까요?')) {
-      nav('/', { replace: true });
-    }
+    customNav('/', false, '변경 사항이 저장되지 않습니다. 계속 할까요?');
   };
 
   const handleNewDiaryCreate = () => {
-    if (window.confirm('작성하신 내용으로 일기를 생성합니다')) {
-      handleCreate({ diaryDate, content, emotionId });
-      nav('/', { replace: true });
-    }
+    customNav('/', true, '작성하신 내용으로 일기를 생성합니다');
+    handleCreate({ diaryDate, content, emotionId });
   };
 
   const handleDiaryUpdate = () => {
-    if (window.confirm('작성한 내용으로 수정할까요?')) {
-      handleUpdate({ id: selectedDiary.id, diaryDate, emotionId, content });
-      nav('/', { replace: true });
-    }
+    customNav('/', true, '작성한 내용으로 수정할까요?');
+    handleUpdate({ id: selectedDiary.id, diaryDate, emotionId, content });
   };
 
   const handleDiaryDelete = () => {
-    if (window.confirm('삭제된 일기는 복구되지 않습니다. 계속 할까요?')) {
-      handleDelete(selectedDiary.id);
-      nav('/', { replace: true });
-    }
+    customNav('/', true, '삭제된 일기는 복구되지 않습니다. 계속 할까요?');
+    handleDelete(selectedDiary.id);
   };
 
   return (
