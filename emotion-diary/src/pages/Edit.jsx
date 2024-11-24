@@ -4,14 +4,17 @@ import Editor from '../components/Editor';
 import Footer from '../components/Footer';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDiaryById } from '../hooks/useDiaryById';
-import { useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { DiaryDispatchContext } from '../App';
+
+export const EditItemContext = createContext();
+export const EditSetItemContext = createContext();
 
 const Edit = () => {
   const nav = useNavigate();
   const params = useParams();
   const selectedDiary = useDiaryById();
-  const { handleCreate, handleDelete, handleUpdate } = useContext(DiaryDispatchContext);
+  const { handleCreate, handleUpdate, handleDelete } = useContext(DiaryDispatchContext);
   const [diaryDate, setDiaryDate] = useState(selectedDiary.diaryDate);
   const [emotionId, setEmotionId] = useState(selectedDiary.emotionId); // emotionId 클릭된 값 저장
   const [content, setContent] = useState(selectedDiary.content);
@@ -46,27 +49,23 @@ const Edit = () => {
 
   return (
     <div>
-      <Header
-        type={type}
-        text={type === 'edit' ? '일기 수정하기' : '새 일기 쓰기'}
-        leftBtn={<Button text='< 뒤로 가기' onClick={handlePageMoveToHome} />}
-        rightBtn={<Button text='삭제하기' type='negative' onClick={handleDiaryDelete} />}
-      />
-      <Editor
-        type={type}
-        diaryDate={diaryDate}
-        emotionId={emotionId}
-        content={content}
-        setDiaryDate={setDiaryDate}
-        setEmotionId={setEmotionId}
-        setContent={setContent}
-      />
-      <Footer
-        type={type}
-        onClick={handlePageMoveToHome}
-        onCreate={handleNewDiaryCreate}
-        onUpdate={handleDiaryUpdate}
-      ></Footer>
+      <EditItemContext.Provider value={{ diaryDate, emotionId, content }}>
+        <EditSetItemContext.Provider value={{ setDiaryDate, setEmotionId, setContent }}>
+          <Header
+            type={type}
+            text={type === 'edit' ? '일기 수정하기' : '새 일기 쓰기'}
+            leftBtn={<Button text='< 뒤로 가기' onClick={handlePageMoveToHome} />}
+            rightBtn={<Button text='삭제하기' type='negative' onClick={handleDiaryDelete} />}
+          />
+          <Editor />
+          <Footer
+            type={type}
+            onHandlePageMove={handlePageMoveToHome}
+            onNewDiaryCreate={handleNewDiaryCreate}
+            onDiaryUpdate={handleDiaryUpdate}
+          ></Footer>
+        </EditSetItemContext.Provider>
+      </EditItemContext.Provider>
     </div>
   );
 };

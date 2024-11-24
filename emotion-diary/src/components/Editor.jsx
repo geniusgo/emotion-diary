@@ -1,19 +1,15 @@
 import './Editor.css';
+import { emotionName } from '../constants/constants';
 import DatePicker from './commons/DatePicker';
 import EmotionCard from './commons/EmotionCard';
-import { emotionName } from '../constants/constants';
 import TextArea from './commons/TextArea';
-import { useDiaryById } from '../hooks/useDiaryById';
+import { useContext } from 'react';
+import { EditItemContext, EditSetItemContext } from '../pages/Edit';
 
-const Editor = ({
-  type,
-  diaryDate,
-  emotionId,
-  content,
-  setDiaryDate,
-  setEmotionId,
-  setContent,
-}) => {
+const Editor = () => {
+  const { diaryDate, emotionId, content } = useContext(EditItemContext);
+  const { setDiaryDate, setEmotionId, setContent } = useContext(EditSetItemContext);
+
   const handleEmotionCardClick = (e) => {
     const selectedId = [...e.currentTarget.children].findIndex(
       (elem) => elem === e.target || [...elem.children].includes(e.target)

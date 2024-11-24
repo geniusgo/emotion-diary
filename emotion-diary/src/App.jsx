@@ -2,7 +2,6 @@ import './App.css';
 import Details from './pages/Details.jsx';
 import Edit from './pages/Edit.jsx';
 import Home from './pages/Home.jsx';
-import New from './pages/New.jsx';
 import NotFound from './pages/NotFound.jsx';
 import { Routes, Route } from 'react-router-dom';
 import { useReducer, createContext, useRef } from 'react';

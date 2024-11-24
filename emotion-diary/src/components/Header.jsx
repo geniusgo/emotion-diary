@@ -7,7 +7,7 @@ const Header = ({ type, text, leftBtn, rightBtn }) => {
       <div className='header-title-container'>
         <p className='title'>{text}</p>
       </div>
-      {type === 'edit' ? rightBtn : <div className='button-container'></div>}
+      {type === 'edit' || type === undefined ? rightBtn : <div className='button-container'></div>}
     </div>
   );
 };
