@@ -48,7 +48,7 @@ const Edit = () => {
     <div>
       <Header
         type={type}
-        text='일기 수정하기'
+        text={type === 'edit' ? '일기 수정하기' : '새 일기 쓰기'}
         leftBtn={<Button text='< 뒤로 가기' onClick={handlePageMoveToHome} />}
         rightBtn={<Button text='삭제하기' type='negative' onClick={handleDiaryDelete} />}
       />
