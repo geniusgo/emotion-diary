@@ -1,6 +1,5 @@
 import './DatePicker.css';
 import { dateFormatter } from '../../utils/date-formatter';
-import { useEffect } from 'react';
 
 const DatePicker = ({ diaryDate, setDiaryDate }) => {
   const handleDateChange = (e) => {

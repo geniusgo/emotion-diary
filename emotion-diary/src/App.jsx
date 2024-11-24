@@ -39,6 +39,7 @@ function App() {
     });
   };
 
+  // 일기 삭제하기
   const handleDelete = (id) => {
     dispatch({
       type: 'DELETE',
@@ -46,6 +47,7 @@ function App() {
     });
   };
 
+  // 일기 수정
   const handleUpdate = (diary) => {
     dispatch({
       type: 'UPDATE',
