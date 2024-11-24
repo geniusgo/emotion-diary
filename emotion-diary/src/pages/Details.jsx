@@ -30,7 +30,7 @@ const Details = () => {
         leftBtn={<Button text={'< 뒤로 가기'} onClick={handlePageMoveToHome} />}
         rightBtn={<Button text={'수정하기'} onClick={handlePageMoveToEdit} />}
       ></Header>
-      <DetailEmotion emotionId={selectedDiary.emotionId} />
+      <DetailEmotion type='details' emotionId={selectedDiary.emotionId} />
       <DetailContent content={selectedDiary.content} readOnly={true} />
     </div>
   );
