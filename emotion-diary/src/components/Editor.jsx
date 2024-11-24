@@ -5,7 +5,15 @@ import { emotionName } from '../constants/constants';
 import TextArea from './commons/TextArea';
 import { useDiaryById } from '../hooks/useDiaryById';
 
-const Editor = ({ diaryDate, emotionId, content, setDiaryDate, setEmotionId, setContent }) => {
+const Editor = ({
+  type,
+  diaryDate,
+  emotionId,
+  content,
+  setDiaryDate,
+  setEmotionId,
+  setContent,
+}) => {
   const handleEmotionCardClick = (e) => {
     const selectedId = [...e.currentTarget.children].findIndex(
       (elem) => elem === e.target || [...elem.children].includes(e.target)

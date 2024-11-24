@@ -1,13 +1,13 @@
 import './Header.css';
 
-const Header = ({ text, leftBtn, rightBtn }) => {
+const Header = ({ type, text, leftBtn, rightBtn }) => {
   return (
     <div className='header-container'>
       {leftBtn}
       <div className='header-title-container'>
         <p className='title'>{text}</p>
       </div>
-      {rightBtn}
+      {type === 'edit' ? rightBtn : <div className='button-container'></div>}
     </div>
   );
 };

@@ -2,21 +2,29 @@ import Header from '../components/Header';
 import Button from '../components/commons/Button';
 import Editor from '../components/Editor';
 import Footer from '../components/Footer';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDiaryById } from '../hooks/useDiaryById';
 import { useContext, useState } from 'react';
 import { DiaryDispatchContext } from '../App';
 
 const Edit = () => {
   const nav = useNavigate();
+  const params = useParams();
   const selectedDiary = useDiaryById();
-  const { handleDelete, handleUpdate } = useContext(DiaryDispatchContext);
+  const { handleCreate, handleDelete, handleUpdate } = useContext(DiaryDispatchContext);
   const [diaryDate, setDiaryDate] = useState(selectedDiary.diaryDate);
   const [emotionId, setEmotionId] = useState(selectedDiary.emotionId); // emotionId 클릭된 값 저장
   const [content, setContent] = useState(selectedDiary.content);
 
   const handlePageMoveToHome = () => {
     if (window.confirm('변경 사항이 저장되지 않습니다. 계속 할까요?')) {
+      nav('/', { replace: true });
+    }
+  };
+
+  const handleNewDiaryCreate = () => {
+    if (window.confirm('작성하신 내용으로 일기를 생성합니다')) {
+      handleCreate({ diaryDate, content, emotionId });
       nav('/', { replace: true });
     }
   };
@@ -38,11 +46,13 @@ const Edit = () => {
   return (
     <div>
       <Header
+        type={params.id ? 'edit' : 'new'}
         text='일기 수정하기'
         leftBtn={<Button text='< 뒤로 가기' onClick={handlePageMoveToHome} />}
         rightBtn={<Button text='삭제하기' type='negative' onClick={handleDiaryDelete} />}
       />
       <Editor
+        type={params.id ? 'edit' : 'new'}
         diaryDate={diaryDate}
         emotionId={emotionId}
         content={content}
