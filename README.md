@@ -1,8 +1,2 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Emotion Diary
+Udemy [<한 입 크기로 잘라먹는 리액트>](https://www.udemy.com/course/winterlood-react-basic/)에 나온 최종 프로젝트를 직접 만들어봤습니다. 일기를 그 날의 감정 이미지와 함께 기록하는 애플리케이션이며, 일기 데이터 CRUD와 `Routes`, `Route`, `useNavigate` 사용한 라우팅을 구현했습니다.
